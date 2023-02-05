@@ -1,0 +1,123 @@
+<!-- map of Kahule Khola -->
+
+<!doctype html>
+<html>
+<head>
+	<title>Nepal Map</title>
+	<meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.6.4/leaflet.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
+    <style>
+		html {
+			height: 100%
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		#map {
+			height: 100%
+		}
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+	</style>
+</head>
+<body>
+
+    <div id="map"></div>
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.6.4/leaflet.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin=""></script>
+    <script src="catiline.js"></script>
+    <script src="leaflet.shpfile.js"></script>
+    <script>
+        
+        var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, //               Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
+        });
+        
+        var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.{ext}', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: 'abcd',
+            minZoom: 0,
+            maxZoom: 20,
+            ext: 'png'
+        });
+
+        var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        });
+        
+        function polystyle() {
+            return {
+                fillColor: '#756BB1',
+                weight: 2,
+                opacity: 1,
+                color: '#08519c',  //Outline color
+                fillOpacity: 0.7
+            };
+        }
+            
+        // import the shapefile and give it its properties
+        
+        var shpfile1 = new L.Shapefile('./dem-processing/catchment.zip', {
+            style: polystyle 
+        });
+        shpfile1.once("data:loaded", function() {
+            console.log("finished loaded shapefile");
+        });
+        
+        var shpfile2 = new L.Shapefile('./dem-processing/rivers.zip', {
+            style: polystyle 
+        });
+        shpfile2.once("data:loaded", function() {
+            console.log("finished loaded shapefile");
+        });
+                
+        // make map and layers
+        
+        var map = L.map('map', {
+            center: [27.873076, 85.881920],
+            zoom: 10,
+            layers: [Esri_WorldTopoMap]
+        });
+        
+        var catchment = L.layerGroup([shpfile1]);
+        var river = L.layerGroup([shpfile2]);
+        
+        var baseMaps = {
+            "World Topo": Esri_WorldTopoMap,
+            "Stamen Toner": Stamen_Toner,
+            "Dark Matter": CartoDB_DarkMatter
+        };
+
+        var overlayMaps = {
+            "Catchment": catchment,
+            "Kahule Khola": river
+        };
+        
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+                
+    </script>
+</body>
+</html>

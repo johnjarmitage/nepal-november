@@ -1,0 +1,22 @@
+name: tandem-x
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - jupyterlab
+  - nodejs
+  - matplotlib
+  - scipy
+  - gdal
+  - astropy
+  - rasterio
+  - pysheds
+  - shapely
+  - fiona
+  - geopandas
+  - seaborn
+  - descartes
+  - pyproj
+  - pip
+  - pip:
+    - ipympl
