@@ -14,7 +14,7 @@ pages:
   tags:
     - Docker-2
   script:
-    - cp ./html/ ./public/
+    - cp -r ./html/ ./public/
   artifacts:
     paths:
       - public
