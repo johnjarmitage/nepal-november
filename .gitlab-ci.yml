@@ -1,0 +1,22 @@
+# gitlab CICD pipeline
+# based on this: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
+
+# Need a docker image that has conda pre-installed to make things easier
+image: continuumio/miniconda3:latest
+
+stages:
+  - deploy
+
+# create the documentation, which involves installing the python environment
+# and the other dependencies for the docker image.
+pages:
+  stage: deploy
+  tags:
+    - Docker-2
+  script:
+    - cp ./html/ ./public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - tags
