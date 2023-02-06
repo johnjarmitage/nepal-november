@@ -36,6 +36,7 @@
             margin-right: 8px;
             opacity: 0.7;
         }
+
 	</style>
 </head>
 <body>
@@ -46,6 +47,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script>
+    <script src="leaflet.ajax.min.js"></script>
     <script src="catiline.min.js"></script>
     <script src="leaflet.shpfile.js"></script>
     <script>
@@ -68,21 +70,96 @@
                 fillOpacity: 0.7
             };
         }
-            
+
+        // some new icon colours
+
+        var icon1 = new L.Icon({
+            iconUrl: './markers/marker-icon-25.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        var icon2 = new L.Icon({
+            iconUrl: './markers/marker-icon-50.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+         var icon3 = new L.Icon({
+            iconUrl: './markers/marker-icon-75.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        var icon4 = new L.Icon({
+            iconUrl: './markers/marker-icon-100.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+         var icon5 = new L.Icon({
+            iconUrl: './markers/marker-icon-125.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
         // import the shapefile and give it its properties
         
         var shpfile1 = new L.Shapefile('./data/catchment.zip', {
             style: polystyle 
         });
         shpfile1.once("data:loaded", function() {
-            console.log("finished loaded shapefile");
+            console.log("finished loaded catchment shapefile");
         });
         
         var shpfile2 = new L.Shapefile('./data/rivers.zip', {
             style: polystyle 
         });
         shpfile2.once("data:loaded", function() {
-            console.log("finished loaded shapefile");
+            console.log("finished loaded flow path shapefile");
+        });
+
+        // import geojson file
+
+        var infiltration = new L.GeoJSON.AJAX('./data/infiltration_json.geojson', { //options object for GeoJSON
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: icon1 }); //options object for Marker
+            }
+        });
+        var permeability = new L.GeoJSON.AJAX('./data/permeability_json.geojson', { //options object for GeoJSON
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: icon2 }); //options object for Marker
+            }
+        });
+        var springs = new L.GeoJSON.AJAX('./data/springs_json.geojson', { //options object for GeoJSON
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: icon3 }); //options object for Marker
+            }
+        });
+        var streams = new L.GeoJSON.AJAX('./data/streams_json.geojson', { //options object for GeoJSON
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: icon4 }); //options object for Marker
+            }
+        });
+        var stations = new L.GeoJSON.AJAX('./data/weather_stations_json.geojson', { //options object for GeoJSON
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: icon5 }); //options object for Marker
+            }
         });
                 
         // make map and layers
@@ -102,8 +179,13 @@
         };
 
         var overlayMaps = {
-            "Catchment": catchment,
-            "Kahule Khola": river
+            "Kahule Khola Catchment": catchment,
+            "Kahule Khola flow paths": river,
+            "Infiltration measurements": infiltration,
+            "Permeability measurements": permeability,
+            "Spring measurements": springs,
+            "Stream measurements": streams,
+            "Weather Stations": stations
         };
         
         L.control.layers(baseMaps, overlayMaps).addTo(map);

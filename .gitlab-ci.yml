@@ -15,6 +15,7 @@ pages:
     - Docker-2
   script:
     - cp -r ./html/ ./public/
+    - echo "The site will be deployed to $CI_PAGES_URL"
   artifacts:
     paths:
       - public
