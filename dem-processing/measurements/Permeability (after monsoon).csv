@@ -1,0 +1,99 @@
+Date;Site/ID;X;Y;Elevation (m);Depth (cm);Change in water level per minute (cm/min);Ksat (cm/min);Ksat (cm/h);Ksat (m/j);Q (cm3/min);Q (cm3/h);VWC (%);PER (µS);Landform;Vegetation;Lithology;Description
+08.11.2022;Listi_ridge;85.86414;27.89467;2334;16;0.17;0.04;2.37;0.6;15.75;945;"17.4
+17.0";"1.389
+1.382";ridge;grass exposed to sun. Bushes and trees.;ridge formed from deposits of old lanslide. Mix of soils and boulders/pebbles.;"0 - 70cm: brown soil
+60-90cm: weathered quartzite/talk
+90-110cm: coarse talc
+110-150cm: quartzite"
+;;;;;50;0.07;0.018;1.08;0.3;7.35;441;;;;;;
+;;;;;150;0.3;0.008;0.47;0.1;31.5;1890;;;;;;
+09.11.2022;Gumba tophill;85.8776;27.90985;2941;20;0.2;0.051;3.07;0.7;21;1260;23.2;1.475;tophill;forest;nan;
+;;;;;50;0.18;0.014;0.83;0.2;18.375;1102.5;;;;;;
+09.11.2022;Gumba midpoint ERT;85.87731;27.90976;2933;24;0.32;0.08;4.8;1.2;32.8125;1968.75;"32.1
+30.0";"1.613
+1.579";downhill on ridge;grass, bushes, trees;fractures from Ghorka earthquake;
+;;;;;40;1;0.079;4.71;1.1;105;6300;;;;;;
+;;;;;138;1.23;0.092;5.54;1.3;123.375;7402.5;;;;;;
+09.11.2022;Meadow;85.87386;27.90816;2757;24;0.6;0.117;7.04;1.7;63;3780;"5.4
+30.8
+17.9
+29.7
+33.3";"1.197
+1.391
+1.396
+1.572
+1.631";meadow;grass, bushes;nan;"0cm: Dry brown soil
+0 - 70cm: Wet loamy clay soil
+70-100cm: rock fractures
+~115cm: weathered regolith
+~130 - 147.5cm: very weathered rocks"
+;;;;;45.5;0.26;0.024;1.45;0.3;27.5625;1653.75;;;;;;
+;;;;;147.5;0.16;0.004;0.26;0.1;17.0625;1023.75;;;;;;
+10.11.2022;Listi_Gully terrace;85.86189;27.89655;2262;24;0.13;0.028;1.67;0.4;13.125;787.5;"12.4
+17.2
+21.6
+21.9";"1.312
+1.385
+1.442
+1.455";gully, terrace;nan;nan;"0cm: Brown dry soil
+20cm: wet dry soil
+50cm: quartzite rocks but mostly brown soil
+110cm: weathered bedrock"
+;;;;;53;0.11;0.017;1.05;0.3;13.125;787.5;;;;;;
+;;;;;110;0.13;0.004;0.23;0.1;14;840;;;;;;
+10.11.2022;Listi_Filled gully;85.86609;27.89347;2296;24;0.73;0.161;9.69;2.3;76.125;4567.5;"29.0
+27.1
+34.3
+26.7
+27.1";"1.563
+1.534
+1.649
+1.519
+1.542";filled gully;nan;nan;"0cm: dark brown soil
+0 - 20cm: rock cruze brown
+25cm: small weathered rocks
+36cm: quartzite"
+;;;;;54;0.3;0.035;2.09;0.5;28.875;1732.5;;;;;;
+10.11.2022;Listi_Lush forest;85.86001;27.90238;nan;21;0.27;0.043;2.6;0.6;26.25;1575;"26.7
+12.7
+25.2
+17.2";"1.527
+1.318
+1.504
+1.386";Lush forest;nan;nan;"0cm: wet brown soil
+40cm: lots of white quartzite
+50cm: light brown soil with quartzite (all the measurements was in this layer)"
+;;;;;50;0.63;0.16;9.61;2.3;65.625;3937.5;;;;;;
+;;;;;70;0.17;0.022;1.33;0.3;18.375;1102.5;;;;;;
+12.11.2022;Outlet_old terrace;85.88133;27.87335;1096;46;0.9;0.095;5.69;1.4;94.5;5670;"13.2
+5.4
+7.7
+14.4
+8.9";"1.326
+1.191
+1.238
+1.344
+1.256";terrace unused;litter;nan;
+12.11.2022;Outlet_fresh harvest terrace 1;85.88049;27.87167;1107;23.5;0.3;0.052;3.12;0.7;31.5;1890;"23.7
+23.7
+22.8
+16.1
+10.6";"1.483
+1.483
+1.468
+1.369
+1.282";fresh harvested terrace;nan;nan;
+;;;;;49;0.23;0.018;1.06;0.3;23.625;1417.5;;;;;;
+12.11.2022;Outlet_fresh harvest terrace 2;85.87896;27.86899;1155;19;0.5;0.111;6.68;1.6;52.5;3150;;;fresh harvested terrace;nan;nan;
+;;;;;93;0.4;0.025;1.52;0.4;42;2520;;;;;;
+13.11.2022;Outlet_forest;85.88084;27.87399;1128;26;0.37;0.048;2.9;0.7;39.375;2362.5;"6.4
+4.5
+8.5
+4.4
+6.9";"1.215
+1.182
+1.250
+1.179
+1.225";forest;nan;nan;
+;;;;;50;0.686;0.063;3.769;0.9;65.625;3937.5;;;;;;
+;;;;;135;0.58;0.06;3.608;0.9;65.625;3937.5;;;;;;
