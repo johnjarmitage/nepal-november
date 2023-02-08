@@ -71,6 +71,16 @@
             };
         }
 
+        function polystyle_ert() {
+            return {
+                fillColor: '#D22B2B',
+                weight: 4,
+                opacity: 1,
+                color: '#D22B2B',  //Outline color
+                fillOpacity: 0.7
+            };
+        }
+
         // some new icon colours
 
         var icon1 = new L.Icon({
@@ -161,6 +171,36 @@
                 return L.marker(latlng, { icon: icon5 }); //options object for Marker
             }
         });
+        var gumba = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6011 - Gumba tophill.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var meadow = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6012 - Meadow.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var gulley_filled = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6013 - Listi road hollow.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var gulley_v = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6014 - Listi road hollow.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var ridge_1 = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6009 - Listi road ridge (cross section).geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var ridge_2 = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6010 - Listi road ridge (cross section).geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var listi = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6015 - Listi village.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var outcrop_1 = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6016 - Outcrop.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var outcrop_2 = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6018 - Outcrop.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
+        var kahule_khola = new L.GeoJSON.AJAX('./data/ERT.GeoJSON/ERT 6020 - Kahule Khola.geojson', { //options object for GeoJSON
+            style: polystyle_ert
+        });
                 
         // make map and layers
         
@@ -185,7 +225,16 @@
             "Permeability measurements": permeability,
             "Spring measurements": springs,
             "Stream measurements": streams,
-            "Weather Stations": stations
+            "Weather Stations": stations,
+            "ERT Gumba": gumba,
+            "ERT Meadow": meadow,
+            "ERT Filled gulley": gulley_filled,
+            "ERT V-shaped gulley": gulley_v,
+            "ERT Ridge (vert.)": ridge_1,
+            "ERT Ridge (trans.)": ridge_2,
+            "ERT Outcrop 1": outcrop_1,
+            "ERT Outcrop 2": outcrop_2,
+            "ERT Outlet": kahule_khola
         };
         
         L.control.layers(baseMaps, overlayMaps).addTo(map);
